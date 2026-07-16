@@ -1,0 +1,22 @@
+# Dataset - too large for GitHub
+dataset/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Uploaded images
+uploads/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Model file (large binary - use Git LFS if needed)
+model/*.h5
+
+# OS files
+.DS_Store
+Thumbs.db

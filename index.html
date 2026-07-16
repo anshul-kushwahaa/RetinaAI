@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetinaAI - Diabetic Retinopathy Detection</title>
+    <link rel="icon" type="image/svg+xml" href="static/favicon.svg" />
+    <link rel ="stylesheet" href="static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <nav class ="navbar">
+        <div class="nav-brand">
+            <span class="eye-icon">👁</span>
+            <span class="brand-name">Retina<span class="accent">AI</span></span>
+        </div>
+        <span class="nav-tagline">AI-Powered Diabetic Retinopathy Detetion</span>
+    </nav>
+
+    <header class="hero">
+        <h1>Retinal Disease Detection</h1>
+        <p>Upload a fundus retinal image and receive an instant DR severity grade using deep learning</p>
+    </header>
+
+    <main class="container">
+
+        <section class"card upload-card">
+            <h2>Upload Fundus Image</h2>
+
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-icon">🔬</div>
+                <p class="drop-text">Drag & drop your Retinal Image here</p>
+                <p class="drop-sub">or</p>
+                <label class="browse-btn" for="fileInput"></label>
+                <input type="file" id="fileInput" accept="image/*" hidden/>
+                <p class="drop-hint">Supports: JGP, PNG, JPEG</p>
+            </div>
+
+            <div class="preview-box" id="previewBox" style="display:none;">
+                <img id="previewImg" src="" alt="Retinal Image Preview" />
+                <button class="remove-btn" id="removeBtn">✕ Remove</button>
+            </div>
+
+            <button class="analyze-btn" id="analyzeBtn" disabled>
+                <span id="btnText">Analyze Image</span>
+                <span id="btnLoader" style="display:none;">Analyzing...</span>
+            </button>
+        </section>
+
+        <section class="card result-card" id="resultCard">
+            <div class="result-placeholder" id="resultPlaceholder">
+                <span class="placeholder-icon">📊</span>
+                <p>Result will appear here after analysis</p>
+            </div>
+
+            <div class="result-content" id="resultContent" style="display:none;">
+                <div class="grade-badge" id="gradeBadge">
+                    <span class="grade-label">DR Grade</span>
+                    <span class="grade-number" id="gradeNumber">0</span>
+                </div>
+
+                <div>
+                    <span class="severity-icon" id="severityIcon">✅</span>
+                    <span class="severity-text" id="severityText">No Diabetic retinopathy</span>
+                </div>
+
+                <div class="confidence-block">
+                    <div class="confidence-header">
+                        <span>Confidence</span>
+                        <span id="confidenceValue">0%</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-description" id="resultDescription"></div>
+
+                <button class="reset-btn" id="resetBtn">Analyze Another Image</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="grade-guide">
+        <h3>DR Severity Grades</h3>
+        <div class="grade-cards">
+            <div class="grade-ref g0"><span class="ref-num">0</span><span class="ref-label">No DR</span></div>
+            <div class="grade-ref g1"><span class="ref-num">1</span><span class="ref-label">Mild NPDR</span></div>
+            <div class="grade-ref g2"><span class="ref-num">2</span><span class="ref-label">Moderate NPDR</span></div>
+            <div class="grade-ref g3"><span class="ref-num">3</span><span class="ref-label">Severe NPDR</span></div>
+            <div class="grade-ref g4"><span class="ref-num">4</span><span class="ref-label">Proliferative DR</span></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>⚕ RetinaAI is for research and educational purposes only. Always consult a certified ophthalmologist.</p>
+    </footer>
+
+    <script src="static/script.js"></script>
+
+</body>
+</html>

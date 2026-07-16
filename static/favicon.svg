@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d4ff" />
+      <stop offset="100%" stop-color="#0044cc" />
+    </radialGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1b2e" />
+      <stop offset="100%" stop-color="#0a0f1e" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="url(#bgGrad)" />
+
+  <!-- Eye white (sclera) -->
+  <ellipse cx="32" cy="32" rx="26" ry="14" fill="#e8f4ff" />
+
+  <!-- Iris -->
+  <circle cx="32" cy="32" r="10" fill="url(#irisGrad)" />
+
+  <!-- Pupil -->
+  <circle cx="32" cy="32" r="5" fill="#000d1a" />
+
+  <!-- Light reflection -->
+  <circle cx="35" cy="29" r="2" fill="rgba(255,255,255,0.7)" />
+
+  <!-- Scan lines (retina effect) -->
+  <line x1="32" y1="22" x2="32" y2="18" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="32" y1="42" x2="32" y2="46" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="22" y1="32" x2="18" y2="32" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="42" y1="32" x2="46" y2="32" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Corner brackets (scan frame) -->
+  <path d="M10,22 L10,14 L18,14" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M54,22 L54,14 L46,14" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M10,42 L10,50 L18,50" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M54,42 L54,50 L46,50" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+</svg>
