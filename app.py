@@ -61,16 +61,19 @@ def predict():
     predictions = model.predict(img_array)
     grade = int(np.argmax(predictions[0]))
     confidence = float(np.max(predictions[0]))
+    all_probabilities = [round(float(p), 4) for p in predictions[0]]
 
     os.remove(filepath)
 
     return jsonify({
         "grade": grade,
-        "confidence": confidence
+        "confidence": confidence,
+        "all_probabilities": all_probabilities
     })
 
 if __name__ == "__main__":
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     load_model()
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host="0.0.0.0", port=port)
     

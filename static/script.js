@@ -125,7 +125,8 @@ analyzeBtn.addEventListener("click", async () => {
     if (!response.ok) throw new Error("Server error");
 
     const data = await response.json();
-    showResult(data.grade, data.confidence);
+    showResult(data.grade, data.confidence, data.all_probabilities);
+    addToHistory(data.grade, data.confidence);
 
   } catch (error) {
     alert("Error: Could not connect to the server.\nMake sure app.py is running.");
@@ -136,7 +137,7 @@ analyzeBtn.addEventListener("click", async () => {
   }
 });
 
-function showResult(grade, confidence) {
+function showResult(grade, confidence, allProbs) {
   const info = GRADE_INFO[grade];
   const color = GRADE_COLORS[grade];
 
@@ -156,8 +157,53 @@ function showResult(grade, confidence) {
 
   resultDescription.textContent = info.description;
 
+  renderChart(allProbs);
+
   resultPlaceholder.style.display = "none";
   resultContent.style.display = "block";
+}
+
+function renderChart(probs) {
+  const labels = ["Grade 0", "Grade 1", "Grade 2", "Grade 3", "Grade 4"];
+  const chartBars = document.getElementById("chartBars");
+  chartBars.innerHTML = "";
+
+  probs.forEach((prob, i) => {
+    const color = GRADE_COLORS[i];
+    const pct = Math.round(prob * 100);
+    const row = document.createElement("div");
+    row.className = "chart-row";
+    row.innerHTML = `
+      <span class="chart-label">${labels[i]}</span>
+      <div class="chart-bar-wrap">
+        <div class="chart-bar-fill" style="width:${pct}%; background:${color};"></div>
+      </div>
+      <span class="chart-pct">${pct}%</span>
+    `;
+    chartBars.appendChild(row);
+  });
+}
+
+function addToHistory(grade, confidence) {
+  const historySection = document.getElementById("historySection");
+  const historyGrid   = document.getElementById("historyGrid");
+  const color = GRADE_COLORS[grade];
+  const info  = GRADE_INFO[grade];
+  const now   = new Date().toLocaleTimeString();
+
+  const card = document.createElement("div");
+  card.className = "history-card";
+  card.innerHTML = `
+    <img src="${previewImg.src}" alt="Scan" />
+    <div class="history-info">
+      <div class="history-grade" style="color:${color}">Grade ${grade} — ${Math.round(confidence * 100)}%</div>
+      <div class="history-label">${info.label}</div>
+      <div class="history-time">${now}</div>
+    </div>
+  `;
+
+  historyGrid.prepend(card);
+  historySection.style.display = "block";
 }
 
 resetBtn.addEventListener("click", () => {
