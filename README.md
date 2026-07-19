@@ -1,21 +1,21 @@
-# 👁 RetinaAI — AI-Based Eye Disease Detection
+#  RetinaAI — AI-Based Eye Disease Detection
 
 An AI-powered web application for **Diabetic Retinopathy (DR)** detection using deep learning. Upload a fundus retinal image and get an instant severity prediction from **Grade 0 (No DR)** to **Grade 4 (Proliferative DR)**.
 
----
 
-## 🚀 Features
 
-- 🔬 **Deep Learning Model** — EfficientNetB3 with transfer learning
-- 📊 **5-Class Classification** — Grade 0 to Grade 4 DR severity
-- 📈 **Confidence Chart** — Visual probability breakdown for all grades
-- 🕒 **Scan History** — Tracks all past analyzed images in session
-- 🖥️ **Modern UI** — Dark medical-themed interface with drag & drop upload
-- ⚡ **Real-time Prediction** — Instant results via Flask REST API
+##  Features
 
----
+-  **Deep Learning Model** — EfficientNetB3 with transfer learning
+-  **5-Class Classification** — Grade 0 to Grade 4 DR severity
+-  **Confidence Chart** — Visual probability breakdown for all grades
+-  **Scan History** — Tracks all past analyzed images in session
+-  **Modern UI** — Dark medical-themed interface with drag & drop upload
+-  **Real-time Prediction** — Instant results via Flask REST API
 
-## 🩺 DR Severity Grades
+
+
+##  DR Severity Grades
 
 | Grade | Severity | Description |
 |-------|----------|-------------|
@@ -25,9 +25,9 @@ An AI-powered web application for **Diabetic Retinopathy (DR)** detection using 
 | 3 | Severe NPDR | Many blocked vessels, urgent referral needed |
 | 4 | Proliferative DR | Abnormal new vessels, immediate intervention required |
 
----
 
-## 🛠️ Tech Stack
+
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -36,11 +36,11 @@ An AI-powered web application for **Diabetic Retinopathy (DR)** detection using 
 | ML Model | TensorFlow, tf-Keras, EfficientNetB3 |
 | Dataset | APTOS 2019 Blindness Detection (Kaggle) |
 
----
 
-## 📁 Project Structure
 
-```
+##  Project Structure
+
+
 RetinaAI/
 ├── index.html          # Main web UI
 ├── app.py              # Flask API server
@@ -57,11 +57,11 @@ RetinaAI/
 ├── model/              # Trained model (not in repo)
 │   └── retina_model.h5
 └── uploads/            # Temp image storage
-```
 
----
 
-## ⚙️ Setup & Installation
+
+
+##  Setup & Installation
 
 ### 1. Clone the repository
 ```bash
@@ -99,9 +99,9 @@ python -m http.server 8080
 
 Open `http://localhost:8080` in your browser.
 
----
 
-## 🌐 API Reference
+
+##  API Reference
 
 ### `POST /predict`
 Upload a retinal image and get DR grade prediction.
@@ -121,9 +121,9 @@ Body: file=<image>
 }
 ```
 
----
 
-## 📊 Model Performance
+
+##  Model Performance
 
 | Metric | Value |
 |--------|-------|
@@ -133,21 +133,21 @@ Body: file=<image>
 | Training Epochs | 30 (early stopping) |
 | Dataset | APTOS 2019 (3,662 images) |
 
----
 
-## ⚕️ Disclaimer
+
+##  Disclaimer
 
 RetinaAI is intended for **research and educational purposes only**. It is not a substitute for professional medical diagnosis. Always consult a certified ophthalmologist for clinical decisions.
 
----
 
-## 👨‍💻 Author
+
+##  Author
 
 **Anshul Kushwaha**
 - GitHub: [@anshul-kushwahaa](https://github.com/anshul-kushwahaa)
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
